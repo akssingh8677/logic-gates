@@ -1,0 +1,93 @@
+#! /usr/local/bin/vvp
+:ivl_version "13.0 (devel)" "(s20251012-19-g3d4f1eb94)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/local/lib/ivl/system.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/lib/ivl/va_math.vpi";
+S_0x564ba8954ac0 .scope module, "tb_basic_gates" "tb_basic_gates" 2 3;
+ .timescale 0 0;
+v0x564ba897e5b0_0 .var "a", 0 0;
+o0x7d8689e9f1c8 .functor BUFZ 1, c4<z>; HiZ drive
+v0x564ba897e670_0 .net "and_out", 0 0, o0x7d8689e9f1c8;  0 drivers
+v0x564ba897e710_0 .var "b", 0 0;
+v0x564ba897e7b0_0 .net "nand_out", 0 0, L_0x564ba897f150;  1 drivers
+v0x564ba897e850_0 .net "nor_out", 0 0, L_0x564ba897ec30;  1 drivers
+v0x564ba897e8f0_0 .net "not_out", 0 0, L_0x564ba897ed40;  1 drivers
+o0x7d8689e9f1f8 .functor BUFZ 1, c4<z>; HiZ drive
+v0x564ba897e9c0_0 .net "or_out", 0 0, o0x7d8689e9f1f8;  0 drivers
+v0x564ba897ea90_0 .net "xnor_out", 0 0, L_0x564ba897f260;  1 drivers
+v0x564ba897eb60_0 .net "xor_out", 0 0, L_0x564ba897f030;  1 drivers
+S_0x564ba8954c50 .scope module, "uut" "basic_gates" 2 7, 3 3 0, S_0x564ba8954ac0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "nota_out";
+    .port_info 3 /OUTPUT 1 "notb_out";
+    .port_info 4 /OUTPUT 1 "or_out";
+    .port_info 5 /OUTPUT 1 "nor_out";
+    .port_info 6 /OUTPUT 1 "and_out";
+    .port_info 7 /OUTPUT 1 "nand_out";
+    .port_info 8 /OUTPUT 1 "xor_out";
+    .port_info 9 /OUTPUT 1 "xnor_out";
+L_0x564ba897ec30 .functor AND 1, v0x564ba897e5b0_0, v0x564ba897e710_0, C4<1>, C4<1>;
+L_0x564ba897ed40 .functor OR 1, v0x564ba897e5b0_0, v0x564ba897e710_0, C4<0>, C4<0>;
+L_0x564ba897ee00 .functor NOT 1, v0x564ba897e5b0_0, C4<0>, C4<0>, C4<0>;
+L_0x564ba897ef00 .functor AND 1, v0x564ba897e5b0_0, v0x564ba897e710_0, C4<1>, C4<1>;
+L_0x564ba897f030 .functor NOT 1, L_0x564ba897ef00, C4<0>, C4<0>, C4<0>;
+L_0x564ba897f0a0 .functor OR 1, v0x564ba897e5b0_0, v0x564ba897e710_0, C4<0>, C4<0>;
+L_0x564ba897f150 .functor NOT 1, L_0x564ba897f0a0, C4<0>, C4<0>, C4<0>;
+L_0x564ba897f260 .functor XOR 1, v0x564ba897e5b0_0, v0x564ba897e710_0, C4<0>, C4<0>;
+L_0x564ba897f370 .functor XOR 1, v0x564ba897e5b0_0, v0x564ba897e710_0, C4<0>, C4<0>;
+L_0x564ba897f3e0 .functor NOT 1, L_0x564ba897f370, C4<0>, C4<0>, C4<0>;
+v0x564ba8954e30_0 .net *"_ivl_10", 0 0, L_0x564ba897f0a0;  1 drivers
+v0x564ba897d9e0_0 .net *"_ivl_16", 0 0, L_0x564ba897f370;  1 drivers
+v0x564ba897dac0_0 .net *"_ivl_6", 0 0, L_0x564ba897ef00;  1 drivers
+v0x564ba897db80_0 .net "a", 0 0, v0x564ba897e5b0_0;  1 drivers
+v0x564ba897dc40_0 .net "and_out", 0 0, L_0x564ba897ec30;  alias, 1 drivers
+v0x564ba897dd50_0 .net "b", 0 0, v0x564ba897e710_0;  1 drivers
+v0x564ba897de10_0 .net "nand_out", 0 0, L_0x564ba897f030;  alias, 1 drivers
+v0x564ba897ded0_0 .net "nor_out", 0 0, L_0x564ba897f150;  alias, 1 drivers
+v0x564ba897df90_0 .net "not_out", 0 0, L_0x564ba897ee00;  1 drivers
+v0x564ba897e050_0 .net "nota_out", 0 0, o0x7d8689e9f1c8;  alias, 0 drivers
+v0x564ba897e110_0 .net "notb_out", 0 0, o0x7d8689e9f1f8;  alias, 0 drivers
+v0x564ba897e1d0_0 .net "or_out", 0 0, L_0x564ba897ed40;  alias, 1 drivers
+v0x564ba897e290_0 .net "xnor_out", 0 0, L_0x564ba897f3e0;  1 drivers
+v0x564ba897e350_0 .net "xor_out", 0 0, L_0x564ba897f260;  alias, 1 drivers
+    .scope S_0x564ba8954ac0;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x564ba897e5b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x564ba897e710_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 12 "$display", "a=%b, b=%b, AND=%b, OR=%b, NOT=%b, NAND=%b, NOR=%b, XOR=%b, XNOR=%b", v0x564ba897e5b0_0, v0x564ba897e710_0, v0x564ba897e670_0, v0x564ba897e9c0_0, v0x564ba897e8f0_0, v0x564ba897e7b0_0, v0x564ba897e850_0, v0x564ba897eb60_0, v0x564ba897ea90_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x564ba897e5b0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x564ba897e710_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 17 "$display", "a=%b, b=%b, AND=%b, OR=%b, NOT=%b, NAND=%b, NOR=%b, XOR=%b, XNOR=%b", v0x564ba897e5b0_0, v0x564ba897e710_0, v0x564ba897e670_0, v0x564ba897e9c0_0, v0x564ba897e8f0_0, v0x564ba897e7b0_0, v0x564ba897e850_0, v0x564ba897eb60_0, v0x564ba897ea90_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x564ba897e5b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x564ba897e710_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 22 "$display", "a=%b, b=%b, AND=%b, OR=%b, NOT=%b, NAND=%b, NOR=%b, XOR=%b, XNOR=%b", v0x564ba897e5b0_0, v0x564ba897e710_0, v0x564ba897e670_0, v0x564ba897e9c0_0, v0x564ba897e8f0_0, v0x564ba897e7b0_0, v0x564ba897e850_0, v0x564ba897eb60_0, v0x564ba897ea90_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x564ba897e5b0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x564ba897e710_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 27 "$display", "a=%b, b=%b, AND=%b, OR=%b, NOT=%b, NAND=%b, NOR=%b, XOR=%b, XNOR=%b", v0x564ba897e5b0_0, v0x564ba897e710_0, v0x564ba897e670_0, v0x564ba897e9c0_0, v0x564ba897e8f0_0, v0x564ba897e7b0_0, v0x564ba897e850_0, v0x564ba897eb60_0, v0x564ba897ea90_0 {0 0 0};
+    %vpi_call 2 30 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "basic_gates_tb.v";
+    "basic_gates.v";
